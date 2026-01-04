@@ -1,18 +1,20 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
-contract Day1Party1 {
-    address public party1;
-    uint256 public agreedValue;
-    bool public submitted;
+contract Day1PartyA {
+    address public partyA;
+    bytes32 public commitment;
+    bool public committed;
 
-    constructor(uint256 _value) {
-        party1 = msg.sender;
-        agreedValue = _value;
+    constructor(bytes32 _commitment) {
+        partyA = msg.sender;
+        commitment = _commitment;
     }
 
-    function submit() external {
-        require(msg.sender == party1, "Not Party1");
-        submitted = true;
+    function commit() external {
+        require(msg.sender == partyA, "Not PartyA");
+        require(!committed, "Already committed");
+        committed = true;
     }
 }
+
