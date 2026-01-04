@@ -17,6 +17,19 @@
 				"type": "constructor"
 			},
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "partyA",
+						"type": "address"
+					}
+				],
+				"name": "DataRequested",
+				"type": "event"
+			},
+			{
 				"inputs": [],
 				"name": "commit",
 				"outputs": [],
@@ -51,6 +64,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "dataRequested",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "partyA",
 				"outputs": [
 					{
@@ -60,6 +86,13 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "requestData",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -76,7 +109,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Day1Party1.sol": "Day1PartyA"
+			"Day1PartyA_v2.sol": "Day1PartyA"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -90,12 +123,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"Day1Party1.sol": {
-			"keccak256": "0x702f214a0e0cd80e213362cb5fdf79648f7252d6dfd2a9d532840db79cc9afc0",
+		"Day1PartyA_v2.sol": {
+			"keccak256": "0x19c4a21fdd6a7a2f0840cc66ac7adacb48837cd49ee64fe8018f0e6664e6f9ee",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://493e4bd60605251b776351332568d91eeaf765f91569e2e10f1c844a1bb51fa5",
-				"dweb:/ipfs/QmaqfyWTei2FZ1JajzP8Z8jHh9Q62rNywUhzpVUCzHy3fw"
+				"bzz-raw://98562b2337739ea90ce9c5857ca4127c7648a5304588160d5c0abdd2d11b3ba8",
+				"dweb:/ipfs/QmeCLhBcnS3vZRbjdkHVMBWFKAC2U8BGjhb927wiFobiwM"
 			]
 		}
 	},
