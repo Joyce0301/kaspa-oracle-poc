@@ -1,0 +1,72 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "dataRequested",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "data",
+						"type": "bytes32"
+					}
+				],
+				"name": "fulfillData",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"PartyB_Min.sol": "IPartyA_v3"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"PartyB_Min.sol": {
+			"keccak256": "0xae9c9a24375915bf8242f8647ba189f4cc9d43a59f25a3d1e933f932e462a39a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7a43231a3243a4cc775f50ab5a1e92efae0d87ef31f0cae9a60e2f34d40db7a1",
+				"dweb:/ipfs/QmW8BoRBh1fueeuXJTNJ1QNAHtzGhnHqsYTNWrr4thHshV"
+			]
+		}
+	},
+	"version": 1
+}
