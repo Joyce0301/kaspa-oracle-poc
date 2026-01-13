@@ -61,11 +61,11 @@
 	},
 	"sources": {
 		"PartyB_multiOracle.sol": {
-			"keccak256": "0xc618929c68e0da82ef6a09ddd39add685ac100c6c38ecf8879d9a15d31ac5ff4",
+			"keccak256": "0xbab9c71a3df99c21bfd0fbe594b1b23a75ccfbd4793b395e93dde60725fd45a1",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://121f578fcde7378385c75d2b7dc2308516dd92fa1311181904a837310492e062",
-				"dweb:/ipfs/QmQrzPNSfSFk9EFUvDWyGtdiw7zL77yykk6xuNZbXTZ3hw"
+				"bzz-raw://6197bf78b7d029d147de91afa7e55658a7fe8593f4160ee36ead8c71e199002d",
+				"dweb:/ipfs/QmayPGJ1vnomcWQKyjK3R6nsp5rvG7TdvznRaBPZGuhnzE"
 			]
 		}
 	},

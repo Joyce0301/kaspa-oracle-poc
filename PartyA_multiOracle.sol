@@ -4,7 +4,7 @@ pragma solidity ^0.8.17;
 /// @title Day1 PartyA Two-Oracle Aggregator (production-friendly PoC)
 /// @notice PartyA requests data; two whitelisted oracles submit uint256; contract aggregates by arithmetic mean.
 /// @dev Chinese comments are used; require() messages stay English to avoid Solidity Unicode string issues.
-contract Day1PartyA_TwoOracleAggregator {
+contract PartyA_multiOracle {
     /* ========== 基本角色 ========== */
 
     /// @notice PartyA 地址（合约部署者/请求发起方）

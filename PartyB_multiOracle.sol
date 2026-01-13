@@ -10,7 +10,7 @@ interface IPartyA_TwoOracle {
 /// @title Day1 PartyB Minimal Relay (production-friendly PoC)
 /// @notice Oracle operator calls PartyB.submit(value), PartyB forwards to PartyA.fulfillData(value).
 /// @dev Chinese comments are used; require() messages stay English to avoid Solidity Unicode string issues.
-contract Day1PartyB_Min_V2 {
+contract PartyB_multiOracle {
     /* ========== 基本角色 ========== */
 
     /// @notice PartyB 合约管理员（部署者）

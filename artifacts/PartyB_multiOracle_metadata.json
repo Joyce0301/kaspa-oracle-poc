@@ -1,0 +1,181 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_partyA",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_oracleOperator",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "Submitted",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "oracleOperator",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "partyA",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "partyB",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_newOperator",
+						"type": "address"
+					}
+				],
+				"name": "setOracleOperator",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_partyA",
+						"type": "address"
+					}
+				],
+				"name": "setPartyA",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "submit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "Chinese comments are used; require() messages stay English to avoid Solidity Unicode string issues.",
+			"kind": "dev",
+			"methods": {},
+			"title": "Day1 PartyB Minimal Relay (production-friendly PoC)",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"oracleOperator()": {
+					"notice": "允许调用 submit 的 oracle 操作员地址（建议：对应 oracle 的 EOA）"
+				},
+				"partyA()": {
+					"notice": "对接的 PartyA 合约地址"
+				},
+				"partyB()": {
+					"notice": "PartyB 合约管理员（部署者）"
+				},
+				"setOracleOperator(address)": {
+					"notice": "更换 oracle operator（工程上常见：换机器/换 key）"
+				},
+				"setPartyA(address)": {
+					"notice": "更换 PartyA 地址（工程上可能会重新部署 PartyA）"
+				},
+				"submit(uint256)": {
+					"notice": "Oracle 操作员提交数据（uint256）给 PartyA"
+				}
+			},
+			"notice": "Oracle operator calls PartyB.submit(value), PartyB forwards to PartyA.fulfillData(value).",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"PartyB_multiOracle.sol": "PartyB_multiOracle"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"PartyB_multiOracle.sol": {
+			"keccak256": "0xbab9c71a3df99c21bfd0fbe594b1b23a75ccfbd4793b395e93dde60725fd45a1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6197bf78b7d029d147de91afa7e55658a7fe8593f4160ee36ead8c71e199002d",
+				"dweb:/ipfs/QmayPGJ1vnomcWQKyjK3R6nsp5rvG7TdvznRaBPZGuhnzE"
+			]
+		}
+	},
+	"version": 1
+}
