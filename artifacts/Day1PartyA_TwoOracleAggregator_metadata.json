@@ -1,0 +1,568 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_commitment",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "_oracle1",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_oracle2",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "partyA",
+						"type": "address"
+					}
+				],
+				"name": "Committed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "roundId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "avgValue",
+						"type": "uint256"
+					}
+				],
+				"name": "DataAggregated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "partyA",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "roundId",
+						"type": "uint256"
+					}
+				],
+				"name": "DataRequested",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "oracle",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "roundId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "OracleSubmitted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "oracle1",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "oracle2",
+						"type": "address"
+					}
+				],
+				"name": "OraclesUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "roundId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "reason",
+						"type": "string"
+					}
+				],
+				"name": "RequestCancelled",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timeoutSeconds",
+						"type": "uint256"
+					}
+				],
+				"name": "TimeoutUpdated",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "cancelIfTimeout",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "commit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "commitment",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "committed",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "currentRoundStatus",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "currentRound",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "active",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "ts",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "count",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bool",
+						"name": "oracle1Submitted",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "oracle2Submitted",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "finalized",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "dataRequested",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "fulfillData",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "latestAggregated",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "latestAggregatedRound",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "latestDataBytes32",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "oracle1",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "oracle2",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "partyA",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "requestData",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "requestTimestamp",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "roundId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_oracle1",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_oracle2",
+						"type": "address"
+					}
+				],
+				"name": "setOracles",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_timeoutSeconds",
+						"type": "uint256"
+					}
+				],
+				"name": "setTimeoutSeconds",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "submissions",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "v1",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "v2",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "s1",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "s2",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "finalized",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint8",
+						"name": "count",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "timeoutSeconds",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "Chinese comments are used; require() messages stay English to avoid Solidity Unicode string issues.",
+			"kind": "dev",
+			"methods": {
+				"cancelIfTimeout()": {
+					"details": "这里采取“取消并终止本轮”，不对部分数据进行聚合"
+				},
+				"constructor": {
+					"params": {
+						"_commitment": "你原本的承诺值（可选门控）",
+						"_oracle1": "第一个 oracle 地址",
+						"_oracle2": "第二个 oracle 地址"
+					}
+				},
+				"fulfillData(uint256)": {
+					"details": "两个 oracle 都提交后，合约自动聚合（平均值）"
+				}
+			},
+			"title": "Day1 PartyA Two-Oracle Aggregator (production-friendly PoC)",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"cancelIfTimeout()": {
+					"notice": "超时取消本轮请求（防止一个 oracle 掉线导致系统永久卡住）"
+				},
+				"commit()": {
+					"notice": "PartyA 提交一次承诺（如果你想保留 commit-gate）"
+				},
+				"dataRequested()": {
+					"notice": "当前是否存在未完成的数据请求（防止同一时间多轮并发）"
+				},
+				"fulfillData(uint256)": {
+					"notice": "Oracle 回写数据（每个 oracle 每轮只能提交一次）"
+				},
+				"latestAggregated()": {
+					"notice": "最近一次聚合完成的数值结果（算术平均）"
+				},
+				"latestAggregatedRound()": {
+					"notice": "最近一次聚合对应的轮次"
+				},
+				"latestDataBytes32()": {
+					"notice": "最近一次聚合完成的 bytes32 结果（可选：兼容你之前 bytes32 风格）"
+				},
+				"oracle1()": {
+					"notice": "Oracle 白名单（两个）"
+				},
+				"partyA()": {
+					"notice": "PartyA 地址（合约部署者/请求发起方）"
+				},
+				"requestData()": {
+					"notice": "PartyA 发起新一轮数据请求（多轮可重复测试）"
+				},
+				"requestTimestamp()": {
+					"notice": "当前轮请求发起时间（用于超时控制，防止系统卡死）"
+				},
+				"roundId()": {
+					"notice": "当前轮次 ID（从 1 开始；每次 requestData +1）"
+				},
+				"setOracles(address,address)": {
+					"notice": "修改 oracle 地址（工程落地常见：换机器/换 key）"
+				},
+				"setTimeoutSeconds(uint256)": {
+					"notice": "修改超时时间（防卡死）"
+				},
+				"submissions(uint256)": {
+					"notice": "roundId => 本轮提交情况"
+				},
+				"timeoutSeconds()": {
+					"notice": "超时时间（默认 30 分钟，可调）"
+				}
+			},
+			"notice": "PartyA requests data; two whitelisted oracles submit uint256; contract aggregates by arithmetic mean.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"PartyA_multiOracle.sol": "Day1PartyA_TwoOracleAggregator"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"PartyA_multiOracle.sol": {
+			"keccak256": "0xac8b21acf673104f22728c0f453c4d01f6a7d7a1811ec2e1b526ea7871c18d42",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://44adb7923735dcb167c9b6d63a3284f15e02a693771092ebeee8bfdfa0809331",
+				"dweb:/ipfs/QmQx7aKpSoxPiaB8sDdyhDAoyn7jSNB1ZVRr6gBzTftbyx"
+			]
+		}
+	},
+	"version": 1
+}

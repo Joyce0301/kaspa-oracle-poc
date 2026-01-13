@@ -1,0 +1,73 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "dataRequested",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "fulfillData",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"notice": "对齐新版 PartyA：dataRequested() + fulfillData(uint256)",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"PartyB_multiOracle.sol": "IPartyA_TwoOracle"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"PartyB_multiOracle.sol": {
+			"keccak256": "0xc618929c68e0da82ef6a09ddd39add685ac100c6c38ecf8879d9a15d31ac5ff4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://121f578fcde7378385c75d2b7dc2308516dd92fa1311181904a837310492e062",
+				"dweb:/ipfs/QmQrzPNSfSFk9EFUvDWyGtdiw7zL77yykk6xuNZbXTZ3hw"
+			]
+		}
+	},
+	"version": 1
+}
