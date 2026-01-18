@@ -1,0 +1,518 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "oracles",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_thresholdK",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "roundId",
+						"type": "uint256"
+					}
+				],
+				"name": "DataRequested",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "roundId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "Finalized",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "oracle",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "roundId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "ObservationSubmitted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "oracleCount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "thresholdK",
+						"type": "uint256"
+					}
+				],
+				"name": "OraclesConfigured",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "roundId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "reportValue",
+						"type": "uint256"
+					}
+				],
+				"name": "ReportComputed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "oracle",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "roundId",
+						"type": "uint256"
+					}
+				],
+				"name": "ReportConfirmed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "roundId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "reason",
+						"type": "string"
+					}
+				],
+				"name": "RequestCancelled",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timeoutSeconds",
+						"type": "uint256"
+					}
+				],
+				"name": "TimeoutUpdated",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "cancelIfTimeout",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "confirmReport",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "dataRequested",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_rid",
+						"type": "uint256"
+					}
+				],
+				"name": "getRoundStatus",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "active",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "reportReady",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "finalized",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "obsCount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "confirmCount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "reportValue",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_rid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "oracle",
+						"type": "address"
+					}
+				],
+				"name": "hasConfirmedReport",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_rid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "oracle",
+						"type": "address"
+					}
+				],
+				"name": "hasSubmittedObservation",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "isOracle",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "latestRound",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "latestValue",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "oracleCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "partyA",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "requestData",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "requestTimestamp",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "roundId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_timeoutSeconds",
+						"type": "uint256"
+					}
+				],
+				"name": "setTimeoutSeconds",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "submitObservation",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "thresholdK",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "timeoutSeconds",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "这是“机制建模版”：不做真正 P2P 共识，只把 OCR 的 report+quorum 规则写进合约",
+			"kind": "dev",
+			"methods": {
+				"constructor": {
+					"params": {
+						"_thresholdK": "confirm 阈值（K-of-N）",
+						"oracles": "oracle 地址列表（建议奇数：3/5）"
+					}
+				}
+			},
+			"title": "PartyA_OCR（把 Chainlink OCR 的“线下聚合机制规则”建模到合约里）",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"confirmReport()": {
+					"notice": "oracle 确认（认可）本轮 report"
+				},
+				"isOracle(address)": {
+					"notice": "oracle 白名单"
+				},
+				"latestValue()": {
+					"notice": "最新落地结果"
+				},
+				"oracleCount()": {
+					"notice": "oracle 总数（建议 3 或 5）"
+				},
+				"partyA()": {
+					"notice": "PartyA 管理员（部署者）"
+				},
+				"submitObservation(uint256)": {
+					"notice": "oracle 提交 observation（各自独立拉到的数据）"
+				},
+				"thresholdK()": {
+					"notice": "阈值 K（至少多少个 oracle confirm 才 finalize）"
+				},
+				"timeoutSeconds()": {
+					"notice": "超时（防卡死）"
+				}
+			},
+			"notice": "流程：PartyA 发起 round -> 多个 oracle 提交 observation -> 合约计算 report（median）         -> oracle 对 report 进行 confirm（认可）-> 达到 K-of-N 阈值后 finalize 落地",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"PartyA_OCR.sol": "PartyA_OCR"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"PartyA_OCR.sol": {
+			"keccak256": "0x92db46db4c76f84cb9222fd7d5554d295bfad78b79b2c5e6a1d6eae52c35ccbf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b190666160c17aa818c1c71ccfc8e577969fe1b8dc5f6a494dbe704397e6a040",
+				"dweb:/ipfs/QmRcJ8oY8pik3nxH6dkFcCJDPnSR3ppkw6uZDZJkRu8kub"
+			]
+		}
+	},
+	"version": 1
+}
